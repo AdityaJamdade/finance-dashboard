@@ -1,16 +1,29 @@
 import { useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { Box, CssBaseline, ThemeProvider } from "@mui/material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "@/scenes/navbar";
 
 function App() {
   const theme = useMemo(() => createTheme(themeSettings), []);
-  return <div className="app">
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      App
-    </ThemeProvider>
-  </div>;
+  return (
+    <div className="app">
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+
+          <Box height="10%" width="100%" padding="1rem 2rem 4rem 2rem">
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<div>Dashboard</div>} />
+              <Route path="/predictions" element={<div>Predictions</div>} />
+            </Routes>
+          </Box>
+        </ThemeProvider>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
