@@ -4,12 +4,12 @@ import { Box, Typography, useTheme } from "@mui/material";
 
 type Props = {
   title: string;
-  sidetext: string;
+  sideText: string;
   subTitle?: string;
   icon?: React.ReactNode;
 };
 
-const BoxHeader = ({ icon, title, subTitle, sidetext }: Props) => {
+const BoxHeader = ({ icon, title, subTitle, sideText }: Props) => {
   const { palette } = useTheme();
   return (
     <FlexBetween color={palette.grey[400]} margin="1.5rem 1rem 0 1rem">
@@ -23,7 +23,7 @@ const BoxHeader = ({ icon, title, subTitle, sidetext }: Props) => {
         </Box>
       </FlexBetween>
       <Typography variant="h6" fontWeight="700" color={palette.secondary[500]}>
-        {sidetext}
+        {sideText}
       </Typography>
     </FlexBetween>
   );
