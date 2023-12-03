@@ -1,21 +1,16 @@
 import BoxHeader from "@/components/BoxHeader";
 import DashboardBox from "@/components/DashboardBox";
-import { useGetKpisQuery, useGetProductsQuery } from "@/state/api";
+import { useGetKpisQuery } from "@/state/api";
 import { useTheme } from "@mui/material";
 import { useMemo } from "react";
 import {
-  AreaChart,
-  Area,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
   Line,
-  Legend,
   LineChart,
-  BarChart,
-  Bar,
 } from "recharts";
 
 type Props = {};
@@ -23,7 +18,6 @@ type Props = {};
 const Row1 = (props: Props) => {
   const { palette } = useTheme();
   const { data: operationalData } = useGetKpisQuery();
-  const { data: productData } = useGetProductsQuery();
 
   const operationalExpenses = useMemo(() => {
     return (
