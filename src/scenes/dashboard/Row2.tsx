@@ -16,12 +16,20 @@ import {
   LineChart,
   BarChart,
   Bar,
+  PieChart,
+  Pie,
+  Cell,
 } from "recharts";
 
-type Props = {};
+const pieData = [
+  { name: "Group A", value: 600 },
+  { name: "Group B", value: 400 },
+];
 
-const Row1 = (props: Props) => {
+const Row1 = () => {
   const { palette } = useTheme();
+  const pieColors = [palette.primary[800], palette.primary[300]];
+
   const { data: operationalData } = useGetKpisQuery();
   const { data: productData } = useGetProductsQuery();
 
@@ -92,7 +100,31 @@ const Row1 = (props: Props) => {
           </LineChart>
         </ResponsiveContainer>
       </DashboardBox>
-      <DashboardBox gridArea="e"></DashboardBox>
+      <DashboardBox gridArea="e">
+        <PieChart
+          width={110}
+          height={100}
+          margin={{
+            top: 0,
+            right: -10,
+            left: 10,
+            bottom: 0,
+          }}
+        >
+          <Pie
+            stroke="none"
+            data={pieData}
+            innerRadius={18}
+            outerRadius={38}
+            paddingAngle={2}
+            dataKey="value"
+          >
+            {pieData.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={pieColors[index]} />
+            ))}
+          </Pie>
+        </PieChart>
+      </DashboardBox>
       <DashboardBox gridArea="f"></DashboardBox>
     </>
   );
