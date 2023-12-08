@@ -53,7 +53,15 @@ const Row1 = (props: Props) => {
               color: palette.grey[300],
               border: "none",
             },
-            "& .MuiDataGrid-cell": {},
+            "& .MuiDataGrid-cell": {
+              borderBottom: `1px solid ${palette.grey[800]} !important`,
+            },
+            "& .MuiDataGrid-columnHeaders": {
+              borderBottom: `1px solid ${palette.grey[800]} !important`,
+            },
+            "& .MuiDataGrid-columnSeparator": {
+              visibility: "hidden",
+            },
           }}
         >
           <DataGrid
