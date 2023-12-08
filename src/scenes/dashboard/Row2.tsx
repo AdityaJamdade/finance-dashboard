@@ -30,7 +30,7 @@ const Row1 = () => {
   const pieColors = [palette.primary[800], palette.primary[300]];
 
   const { data: operationalData } = useGetKpisQuery();
-  const { data: productData } = useGetProductsQuery();
+  const { data: productsData } = useGetProductsQuery();
 
   const operationalExpenses = useMemo(() => {
     return (
@@ -49,8 +49,8 @@ const Row1 = () => {
 
   const productExpenseData = useMemo(() => {
     return (
-      productData &&
-      productData.map(({ _id, price, expense }) => {
+      productsData &&
+      productsData.map(({ _id, price, expense }) => {
         return {
           id: _id,
           price: price,
@@ -58,7 +58,7 @@ const Row1 = () => {
         };
       })
     );
-  }, [productData]);
+  }, [productsData]);
 
   return (
     <>
