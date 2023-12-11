@@ -22,11 +22,10 @@ const Row1 = (props: Props) => {
   const { data: transactionData } = useGetTransactionsQuery();
 
   const pieChartData = useMemo(() => {
-    if (kpiData) {
+    if (kpiData && kpiData[0] && kpiData[0].expensesByCategory) {
       const totalExpenses = kpiData[0].totalExpenses;
-
       return Object.entries(kpiData[0].expensesByCategory).map(
-        ([key, value]) => { 
+        ([key, value]) => {
           return [
             {
               name: key,
@@ -41,6 +40,8 @@ const Row1 = (props: Props) => {
       );
     }
   }, [kpiData]);
+
+  
 
   const productColumns = [
     {
@@ -168,11 +169,11 @@ const Row1 = (props: Props) => {
                   stroke="none"
                   data={data}
                   innerRadius={18}
-                  outerRadius={5}
+                  outerRadius={35}
                   paddingAngle={2}
                   dataKey="value"
                 >
-                  {data.map((index) => (
+                  {data.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={pieColors[index]} />
                   ))}
                 </Pie>
