@@ -25,7 +25,7 @@ const pieData = [
   { name: "Group B", value: 400 },
 ];
 
-const Row1 = () => {
+const Row2 = () => {
   const { palette } = useTheme();
   const pieColors = [palette.primary[800], palette.primary[300]];
 
@@ -205,4 +205,4 @@ const Row1 = () => {
   );
 };
 
-export default Row1;
+export default Row2;

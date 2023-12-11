@@ -12,9 +12,7 @@ import { GridCellParams } from "@mui/x-data-grid/models";
 import { useMemo } from "react";
 import { Cell, Pie, PieChart } from "recharts";
 
-type Props = {};
-
-const Row1 = (props: Props) => {
+const Row3 = () => {
   const { palette } = useTheme();
   const pieColors = [palette.primary[800], palette.primary[500]];
   const { data: kpiData } = useGetKpisQuery();
@@ -22,7 +20,7 @@ const Row1 = (props: Props) => {
   const { data: transactionData } = useGetTransactionsQuery();
 
   const pieChartData = useMemo(() => {
-    if (kpiData && kpiData[0] && kpiData[0].expensesByCategory) {
+    if (kpiData) {
       const totalExpenses = kpiData[0].totalExpenses;
       return Object.entries(kpiData[0].expensesByCategory).map(
         ([key, value]) => {
@@ -40,8 +38,6 @@ const Row1 = (props: Props) => {
       );
     }
   }, [kpiData]);
-
-  
 
   const productColumns = [
     {
@@ -188,4 +184,4 @@ const Row1 = (props: Props) => {
   );
 };
 
-export default Row1;
+export default Row3;
