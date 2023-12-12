@@ -160,7 +160,7 @@ const Row3 = () => {
         <FlexBetween mt="0.5rem" gap="0.5rem" p="0 1rem" textAlign="center">
           {pieChartData?.map((data, i) => (
             <Box key={`${data[0].name}-${i}`}>
-              <PieChart width={110} height={100}>
+              <PieChart width={110} height={80}>
                 <Pie
                   stroke="none"
                   data={data}
@@ -179,7 +179,28 @@ const Row3 = () => {
           ))}
         </FlexBetween>
       </DashboardBox>
-      <DashboardBox gridArea="j"></DashboardBox>
+      <DashboardBox gridArea="j">
+        <BoxHeader
+          title="Overall Summary and Explanation Data"
+          sideText="+15%"
+        />
+        <Box
+          height="15px"
+          margin="1.5rem 1rem 0.4rem 1rem"
+          bgcolor={palette.primary[800]}
+          borderRadius="1rem"
+        >
+          <Box
+            height="15px"
+            bgcolor={palette.primary[600]}
+            borderRadius="1rem"
+            width="40%"
+          ></Box>
+        </Box>
+        <Typography margin="0 1rem" variant="h6">
+          This is the overall summary data of entire finances.
+        </Typography>
+      </DashboardBox>
     </>
   );
 };
